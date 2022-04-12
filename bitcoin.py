@@ -19,6 +19,6 @@ for i in transactions:
         addresses_received.append(i["inputs"][0]["prev_out"]["addr"])
 
 print("Addresses received: ", addresses_received)
-# with open('transactions.txt', 'w') as f:
-#     for item in transactions:
-#         f.write("%s\n" % item)
+with open('transactions.txt', 'w') as f:
+    for item in transactions:
+        f.write("%s\n address: " % item)
