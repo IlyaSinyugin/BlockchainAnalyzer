@@ -22,3 +22,7 @@ print("Addresses received: ", addresses_received)
 with open('transactions.txt', 'w') as f:
     for item in transactions:
         f.write("%s\n address: " % item)
+
+
+# TODO look for another APIs to work with since this one is blocking some amount of transactions
+# 
