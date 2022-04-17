@@ -23,8 +23,8 @@ with open('transactions.txt', 'w') as f:
     for item in transactions:
         f.write("%s\n address: " % item)
 
-df = pandas.DataFrame(transactions)
-df.to_csv('transactions.csv')
+#df = pandas.DataFrame(transactions(columns=['inputs', 'outputs']))
+#df.to_csv('transactions.csv')
 
 # TODO look for another APIs to work with since this one is blocking some amount of transactions
 # 
