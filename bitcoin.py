@@ -4,7 +4,7 @@
 import pandas 
 
 #wallet = str(input("Enter the wallet address: "))
-wallet = "bc1q57xhcvleefxz4m2w8ytc6nuy76m4wtjxsw66q6"
+wallet = "bc1qqpnw6hykw876q49hxcxclhfyy46exjd6ez3046"
 transaction_url = 'https://blockchain.info/rawaddr/' + wallet
 df = pandas.read_json(transaction_url) # read the json file
 transactions=df["txs"]
@@ -13,16 +13,18 @@ transactions=df["txs"]
 # and saving them in a list
 addresses_received = []
 for i in transactions: 
-    for j in i["inputs"]:
-        addresses_received.append(i["inputs"][0]["prev_out"]["addr"])
+    inputsList = i["inputs"]
+    outputsList = i["out"]
+    for j in range(len(inputsList)):
+        if inputsList[j]["prev_out"]["addr"] not in addresses_received:
+            addresses_received.append(i["inputs"][j]["prev_out"]["addr"])
+    for k in range(len(outputsList)):
+        if outputsList[k]["addr"] not in addresses_received:
+            addresses_received.append(i["out"][k]["addr"])
 
 print("Addresses received: ", addresses_received)
 with open('transactions.txt', 'w') as f:
     f.write("Addresses received from: " + str(addresses_received)) # writing all received addresses to a file
 
 
-#df = pandas.DataFrame(transactions(columns=['inputs', 'outputs']))
-#df.to_csv('transactions.csv')
-
-# TODO look for another APIs to work with since this one is blocking some amount of transactions
-# 
+#TODO put it in csv
