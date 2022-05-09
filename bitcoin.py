@@ -1,10 +1,12 @@
+# Author - Ilya Sinyugin
 # Analyzing transaction in Bitcoin blockchain 
 # Algorithm to output the addresses that the given address has interacted with 
 
 import pandas 
 
 #wallet = str(input("Enter the wallet address: "))
-wallet = "bc1qqpnw6hykw876q49hxcxclhfyy46exjd6ez3046"
+# example wallet bc1qqpnw6hykw876q49hxcxclhfyy46exjd6ez3046
+wallet = input("What's your wallet?")
 transaction_url = 'https://blockchain.info/rawaddr/' + wallet
 df = pandas.read_json(transaction_url) # read the json file
 transactions=df["txs"]
