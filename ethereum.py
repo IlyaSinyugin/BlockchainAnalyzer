@@ -1,11 +1,17 @@
 from dotenv import load_dotenv
+from etherscan import Etherscan
 import os
 
 load_dotenv()
 # etherscan API from .env 
 API = os.getenv("ETHERSCAN_API_KEY")
+eth = Etherscan(API)
 
-print(API)
+# Vitalik's address
+Wallet_Address = "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
+eth_balance = eth.get_eth_balance(Wallet_Address)
+print(float(eth_balance)/1000000000000000000) # dividing since originally it's in wei 
+
 
 #TODO 
 # implement the same functionality as in bitcoin.py but for etherscna 
