@@ -29,4 +29,5 @@ with open('transactions.txt', 'w') as f:
     f.write("Addresses received from: " + str(addresses_received)) # writing all received addresses to a file
 
 
-#TODO put it in csv
+# TODO export the data into a csv file 
+
