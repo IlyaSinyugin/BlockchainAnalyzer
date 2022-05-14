@@ -31,3 +31,4 @@ with open('transactions.txt', 'w') as f:
 
 # TODO export the data into a csv file 
 
+ 
