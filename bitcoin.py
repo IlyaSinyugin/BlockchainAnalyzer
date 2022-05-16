@@ -15,6 +15,7 @@ transactions=df["txs"]
 # and saving them in a list
 addresses_received = []
 for i in transactions: 
+    print(transactions[0])
     inputsList = i["inputs"]
     outputsList = i["out"]
     for j in range(len(inputsList)):
